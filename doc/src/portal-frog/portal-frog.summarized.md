@@ -28,10 +28,10 @@
 # <a name ="1"></a> GENERAL ARCHITECTURE ([&#8632;](#0))
 
 [General architecture](https://portal.frogbywyplay.com/docs/wytv/featured/arch_diagram/) 
-![](/home/randrianaivoe1/Pictures/A-full-archi.png) 
+![](./A-full-archi.png) 
 
 **SOFTWARE LAYER COMMUNICATION**
-![](/home/randrianaivoe1/Pictures/architecture-com.png) 
+![](./architecture-com.png) 
 
 - Wyrest uses a notification mechanism defined  [here](https://portal.frogbywyplay.com/docs/wytv/featured/components/appframeworks-wyrest/wyrest/http/routes/#get--events-) to notify events to applications via  [SSE](https://developer.mozilla.org/en-US/docs/Web/API/Server-sent_events/Using_server-sent_events) (Server-Sent Event) 
 
@@ -41,7 +41,7 @@
 
 ## <a name ="2"></a> A. FROG-UI ([&#8632;](#0))
 [OVERVIEW](https://portal.frogbywyplay.com/docs/wytv/featured/components/apps-frog-ui/overview/) 
-![](/home/randrianaivoe1/Pictures/C-frog-ui.png) 
+![](./C-frog-ui.png) 
 
 
 ## <a name ="3"></a> B. WYREST ([&#8632;](#0))
@@ -49,21 +49,21 @@ wyrest is a RESTful API, it exposes all the middleware functionalities through H
 
 [Code, Présentation, Fonctionnalités, Howto, Références ](https://portal.frogbywyplay.com/docs/wytv/featured/components/appframeworks-wyrest/overview/) 
 
-![](/home/randrianaivoe1/Pictures/E-wyrest.png) 
+![](./E-wyrest.png) 
 
 
 ## <a name ="4"></a> C. MIDDLEWARE ([&#8632;](#0))
 ### <a name ="5"></a> 1. MW-PVR ([&#8632;](#0))
 [All components](https://portal.frogbywyplay.com/docs/wytv/featured/components/toc-media/) 
 
-![](/home/randrianaivoe1/Pictures/F-PVR.png) 
+![](./F-PVR.png) 
 
 
 ##### <a name ="6"></a> SRS ([&#8632;](#0))
-[SRS](https://portal.frogbywyplay.com/docs/wytv/featured/components/media-srs/overview/) :  Scheduled Recording Service, respecte la norme UPnP SRS. Expose API over D-Bus not over network
+[SRS](https://portal.frogbywyplay.com/docs/wytv/featured/components/media-srs/overview/)  :  Scheduled Recording Service, respecte la norme UPnP SRS. Expose API over D-Bus not over network
 
 Flexible architecture to support evolutions > ==TO BE VERIFIED==
-	![](/home/randrianaivoe1/Pictures/L-SRS.png) 
+	![](./L-SRS.png) 
 
 [cds-tv](https://portal.frogbywyplay.com/docs/wytv/featured/components/contents-cds-tv/overview/#cds-tv) : EPG provider component : process DVB Service information tables and provides list of channels
 
@@ -72,7 +72,7 @@ Flexible architecture to support evolutions > ==TO BE VERIFIED==
 ##### <a name ="7"></a> MEDIARENDERER2 ([&#8632;](#0))
 [MEDIARENDERER2](https://portal.frogbywyplay.com/docs/wytv/featured/components/media-mediarenderer2/overview/) : default record launcher (audio/video streams) : play, record, pause, stop, rw, ff, select A/V and subtitle
 
-![](/home/randrianaivoe1/Pictures/M-mediarenderer.png) 
+![](./M-mediarenderer.png) 
 
 [config-store](https://portal.frogbywyplay.com/docs/wytv/featured/components/system-config-store/overview/#config-store) : manage configuration through DBus or C++ API (content parameters, parental control, protection)
 
@@ -90,7 +90,7 @@ Flexible architecture to support evolutions > ==TO BE VERIFIED==
 
 ### <a name ="10"></a> 2. MW-SYSTEM-MANAGEMENT ([&#8632;](#0))
 
-![](/home/randrianaivoe1/Pictures/G-system-management.png) 
+![](./G-system-management.png) 
 
 ##### <a name ="11"></a> wystorage ([&#8632;](#0))
 [wystorage](https://portal.frogbywyplay.com/docs/wytv/featured/components/system-wystorage/overview/) : mount disks/USB keys
@@ -104,12 +104,12 @@ Flexible architecture to support evolutions > ==TO BE VERIFIED==
 
 ### <a name ="15"></a> 3. MW-CONTENT-HANDLING ([&#8632;](#0))
 
-![](/home/randrianaivoe1/Pictures/H-contenthandling.png) 
+![](./H-contenthandling.png) 
 
 ##### <a name ="16"></a> cds-pvr ([&#8632;](#0))
 [cds-pvr](https://portal.frogbywyplay.com/docs/wytv/featured/components/contents-cds-pvr/overview/) : monitors the local list of recordings, which is populated by other components
 
-![](/home/randrianaivoe1/Pictures/Q-cds-pvr.png) 
+![](./Q-cds-pvr.png) 
 
 ##### <a name ="17"></a> downloader ([&#8632;](#0))
 [frogbywyplay.com](https://frogbywyplay.com/) 
@@ -121,11 +121,11 @@ Flexible architecture to support evolutions > ==TO BE VERIFIED==
 		-  framework enabling scan DVB transponders and retrieve the Service Information tables
 		-  hosts cds-tv : services list ( includes fav. lists) and EPG
 	/!\ you have to implement a plugin with yout product-specific scanning algorithm
-![](/home/randrianaivoe1/Pictures/P-wyscan.png) 
+![](./P-wyscan.png) 
 
 
 ### <a name ="19"></a> 4. MW-PLATFORM-ADAPTATION ([&#8632;](#0))
-![](/home/randrianaivoe1/Pictures/J-platform-adaptation.png) 
+![](./J-platform-adaptation.png) 
 
 ##### <a name ="20"></a> avio ([&#8632;](#0))
 [avio](https://portal.frogbywyplay.com/docs/wytv/featured/devkit/components/porting-platformd-nexus-avio/overview/) : dead link
@@ -138,7 +138,7 @@ Flexible architecture to support evolutions > ==TO BE VERIFIED==
 
 
 ### <a name ="23"></a> 5. MW-OTHER ([&#8632;](#0))
-![](/home/randrianaivoe1/Pictures/K-other.png) 
+![](./K-other.png) 
 
 ##### <a name ="24"></a> config-store ([&#8632;](#0))
 [config-store](https://portal.frogbywyplay.com/docs/wytv/featured/components/system-config-store/overview/) : manages configuration for all components - through DBus or C++ APIs
@@ -148,3 +148,4 @@ Flexible architecture to support evolutions > ==TO BE VERIFIED==
 
 ##### <a name ="26"></a> wytransport ([&#8632;](#0))
 [wytransport](https://portal.frogbywyplay.com/docs/wytv/featured/components/utils-libwytransport/overview/) : gives access to multimedia content WITH PUGINS FOR TRANSPORT PROTOCOLS LIKE http, https, http/dlna, smb
+

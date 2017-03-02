@@ -1,0 +1,646 @@
+<!DOCTYPE HTML>
+<html>
+ <head>
+  <meta charset="utf-8"/>
+  <title>
+   Made with Remarkable!
+  </title>
+  <link href="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.1/styles/github.min.css" rel="stylesheet"/>
+  <style type="text/css">
+   body,table tr{background-color:#fff}table tr td,table tr th{border:1px solid #ccc;text-align:left;padding:6px 13px;margin:0}pre code,table,table tr{padding:0}hr,pre code{background:0 0}body{font:16px Helvetica,Arial,sans-serif;line-height:1.4;color:#333;word-wrap:break-word;padding:10px 15px}strong,table tr th{font-weight:700}h1{font-size:2em;margin:.67em 0;text-align:center}h2{font-size:1.75em}h3{font-size:1.5em}h4{font-size:1.25em}h1,h2,h3,h4,h5,h6{font-weight:700;position:relative;margin-top:15px;margin-bottom:15px;line-height:1.1}h1,h2{border-bottom:1px solid #eee}hr{height:0;margin:15px 0;overflow:hidden;border:0;border-bottom:1px solid #ddd}a{color:#4183C4}a.absent{color:#c00}ol,ul{padding-left:15px;margin-left:5px}ol{list-style-type:lower-roman}table tr{border-top:1px solid #ccc;margin:0}table tr:nth-child(2n){background-color:#aaa}table tr td :first-child,table tr th :first-child{margin-top:0}table tr td:last-child,table tr th :last-child{margin-bottom:0}img{max-width:100%}blockquote{padding:0 15px;border-left:4px solid #ccc}code,tt{margin:0 2px;padding:0 5px;white-space:nowrap;border:1px solid #eaeaea;background-color:#f8f8f8;border-radius:3px}pre code{margin:0;white-space:pre;border:none}.highlight pre,pre{background-color:#f8f8f8;border:1px solid #ccc;font-size:13px;line-height:19px;overflow:auto;padding:6px 10px;border-radius:3px}
+  </style>
+ </head>
+ <body>
+  <p>
+   <a href=".//index.html">
+    HOME
+   </a>
+  </p>
+  <h1 id="table-of-content">
+   <a name="0">
+   </a>
+   Table of content
+  </h1>
+  <ul>
+   <li>
+    <a href="#1">
+     GENERAL ARCHITECTURE
+    </a>
+   </li>
+   <li>
+    <a href="#2">
+     A. FROG-UI
+    </a>
+   </li>
+   <li>
+    <a href="#3">
+     B. WYREST
+    </a>
+   </li>
+   <li>
+    <a href="#4">
+     C. MIDDLEWARE
+    </a>
+    <ul>
+     <li>
+      <a href="#5">
+       1. MW-PVR
+      </a>
+      <ul>
+       <li>
+        <a href="#6">
+         SRS
+        </a>
+       </li>
+       <li>
+        <a href="#7">
+         MEDIARENDERER2
+        </a>
+       </li>
+       <li>
+        <a href="#8">
+         WYPLAYER
+        </a>
+       </li>
+       <li>
+        <a href="#9">
+         WYCAS
+        </a>
+       </li>
+      </ul>
+     </li>
+     <li>
+      <a href="#10">
+       2. MW-SYSTEM-MANAGEMENT
+      </a>
+      <ul>
+       <li>
+        <a href="#11">
+         wystorage
+        </a>
+       </li>
+       <li>
+        <a href="#12">
+         platformd-wyclock
+        </a>
+       </li>
+       <li>
+        <a href="#13">
+         network manager
+        </a>
+       </li>
+       <li>
+        <a href="#14">
+         wystandby
+        </a>
+       </li>
+      </ul>
+     </li>
+     <li>
+      <a href="#15">
+       3. MW-CONTENT-HANDLING
+      </a>
+      <ul>
+       <li>
+        <a href="#16">
+         cds-pvr
+        </a>
+       </li>
+       <li>
+        <a href="#17">
+         downloader
+        </a>
+       </li>
+       <li>
+        <a href="#18">
+         wyscan
+        </a>
+       </li>
+      </ul>
+     </li>
+     <li>
+      <a href="#19">
+       4. MW-PLATFORM-ADAPTATION
+      </a>
+      <ul>
+       <li>
+        <a href="#20">
+         avio
+        </a>
+       </li>
+       <li>
+        <a href="#21">
+         wyrender
+        </a>
+       </li>
+       <li>
+        <a href="#22">
+         wydvb
+        </a>
+       </li>
+      </ul>
+     </li>
+     <li>
+      <a href="#23">
+       5. MW-OTHER
+      </a>
+      <ul>
+       <li>
+        <a href="#24">
+         config-store
+        </a>
+       </li>
+       <li>
+        <a href="#25">
+         wylog
+        </a>
+       </li>
+       <li>
+        <a href="#26">
+         wytransport
+        </a>
+       </li>
+      </ul>
+     </li>
+    </ul>
+   </li>
+  </ul>
+  <h1 id="general-architecture">
+   <a name="1">
+   </a>
+   GENERAL ARCHITECTURE (
+   <a href="#0">
+    ↸
+   </a>
+   )
+  </h1>
+  <p>
+   <a href="https://portal.frogbywyplay.com/docs/wytv/featured/arch_diagram/">
+    General architecture
+   </a>
+   <br/>
+   <img alt="" src="./img/A-full-archi.png"/>
+  </p>
+  <p>
+   <strong>
+    SOFTWARE LAYER COMMUNICATION
+   </strong>
+   <br/>
+   <img alt="" src="./img/architecture-com.png"/>
+  </p>
+  <ul>
+   <li>
+    <p>
+     Wyrest uses a notification mechanism defined
+     <a href="https://portal.frogbywyplay.com/docs/wytv/featured/components/appframeworks-wyrest/wyrest/http/routes/#get--events-">
+      here
+     </a>
+     to notify events to applications via
+     <a href="https://developer.mozilla.org/en-US/docs/Web/API/Server-sent_events/Using_server-sent_events">
+      SSE
+     </a>
+     (Server-Sent Event)
+    </p>
+   </li>
+   <li>
+    <p>
+     HTTP routes provided by Wyrest are listed
+     <a href="https://portal.frogbywyplay.com/docs/wytv/featured/components/appframeworks-wyrest/wyrest/http/routes/">
+      here
+     </a>
+    </p>
+   </li>
+   <li>
+    <p>
+     List of methods implemented by middleware components and exposes through DBus API :
+     <a href="https://portal.frogbywyplay.com/docs/wytv/featured/toc-interfaces/">
+      interfaces
+     </a>
+    </p>
+   </li>
+  </ul>
+  <h2 id="a-frog-ui">
+   <a name="2">
+   </a>
+   A. FROG-UI (
+   <a href="#0">
+    ↸
+   </a>
+   )
+  </h2>
+  <p>
+   <a href="https://portal.frogbywyplay.com/docs/wytv/featured/components/apps-frog-ui/overview/">
+    OVERVIEW
+   </a>
+   <br/>
+   <img alt="" src="./img/C-frog-ui.png"/>
+  </p>
+  <h2 id="b-wyrest">
+   <a name="3">
+   </a>
+   B. WYREST (
+   <a href="#0">
+    ↸
+   </a>
+   )
+  </h2>
+  <p>
+   wyrest is a RESTful API, it exposes all the middleware functionalities through HTTP and communicates with middleware component through the D-Bus API.
+  </p>
+  <p>
+   <a href="https://portal.frogbywyplay.com/docs/wytv/featured/components/appframeworks-wyrest/overview/">
+    Code, Présentation, Fonctionnalités, Howto, Références
+   </a>
+  </p>
+  <p>
+   <img alt="" src="./img/E-wyrest.png"/>
+  </p>
+  <h2 id="c-middleware">
+   <a name="4">
+   </a>
+   C. MIDDLEWARE (
+   <a href="#0">
+    ↸
+   </a>
+   )
+  </h2>
+  <h3 id="1-mw-pvr">
+   <a name="5">
+   </a>
+   1. MW-PVR (
+   <a href="#0">
+    ↸
+   </a>
+   )
+  </h3>
+  <p>
+   <a href="https://portal.frogbywyplay.com/docs/wytv/featured/components/toc-media/">
+    All components
+   </a>
+  </p>
+  <p>
+   <img alt="" src="./img/F-PVR.png"/>
+  </p>
+  <h5 id="srs">
+   <a name="6">
+   </a>
+   SRS (
+   <a href="#0">
+    ↸
+   </a>
+   )
+  </h5>
+  <p>
+   <a href="https://portal.frogbywyplay.com/docs/wytv/featured/components/media-srs/overview/">
+    SRS
+   </a>
+   :  Scheduled Recording Service, respecte la norme UPnP SRS. Expose API over D-Bus not over network
+  </p>
+  <p>
+   Flexible architecture to support evolutions &gt;
+   <mark>
+    TO BE VERIFIED
+   </mark>
+   <br/>
+   <img alt="" src="./img/L-SRS.png"/>
+  </p>
+  <p>
+   <a href="https://portal.frogbywyplay.com/docs/wytv/featured/components/contents-cds-tv/overview/#cds-tv">
+    cds-tv
+   </a>
+   : EPG provider component : process DVB Service information tables and provides list of channels
+  </p>
+  <p>
+   <a href="https://portal.frogbywyplay.com/docs/wytv/featured/components/media-strategy/overview/#strategy">
+    strategy
+   </a>
+   : resolve conflicts btw recordings
+  </p>
+  <h5 id="mediarenderer2">
+   <a name="7">
+   </a>
+   MEDIARENDERER2 (
+   <a href="#0">
+    ↸
+   </a>
+   )
+  </h5>
+  <p>
+   <a href="https://portal.frogbywyplay.com/docs/wytv/featured/components/media-mediarenderer2/overview/">
+    MEDIARENDERER2
+   </a>
+   : default record launcher (audio/video streams) : play, record, pause, stop, rw, ff, select A/V and subtitle
+  </p>
+  <p>
+   <img alt="" src="./img/M-mediarenderer.png"/>
+  </p>
+  <p>
+   <a href="https://portal.frogbywyplay.com/docs/wytv/featured/components/system-config-store/overview/#config-store">
+    config-store
+   </a>
+   : manage configuration through DBus or C++ API (content parameters, parental control, protection)
+  </p>
+  <h5 id="wyplayer">
+   <a name="8">
+   </a>
+   WYPLAYER (
+   <a href="#0">
+    ↸
+   </a>
+   )
+  </h5>
+  <p>
+   <a href="https://portal.frogbywyplay.com/docs/wytv/featured/components/media-wyplayer/overview/">
+    WYPLAYER
+   </a>
+   : multimedia player responsible for rendering audio and video.
+   <mark>
+    See compatibility with supported stantards.
+   </mark>
+  </p>
+  <h5 id="wycas">
+   <a name="9">
+   </a>
+   WYCAS (
+   <a href="#0">
+    ↸
+   </a>
+   )
+  </h5>
+  <p>
+   <a href="https://portal.frogbywyplay.com/docs/wytv/featured/components/media-libwycas/overview/">
+    WYCAS
+   </a>
+   : built-in features to CAS integrators
+   <br/>
+   - filter PMT sections to descramble live DVD services
+   <br/>
+   - filter CAT sections to receive EMM sections
+  </p>
+  <pre><code>/!\  limitations : i/ currently only work with unique CAS Driver ii/ no D-Bus interface for operator specific objects like purchases
+</code></pre>
+  <h3 id="2-mw-system-management">
+   <a name="10">
+   </a>
+   2. MW-SYSTEM-MANAGEMENT (
+   <a href="#0">
+    ↸
+   </a>
+   )
+  </h3>
+  <p>
+   <img alt="" src="./img/G-system-management.png"/>
+  </p>
+  <h5 id="wystorage">
+   <a name="11">
+   </a>
+   wystorage (
+   <a href="#0">
+    ↸
+   </a>
+   )
+  </h5>
+  <p>
+   <a href="https://portal.frogbywyplay.com/docs/wytv/featured/components/system-wystorage/overview/">
+    wystorage
+   </a>
+   : mount disks/USB keys
+  </p>
+  <h5 id="platformd-wyclock">
+   <a name="12">
+   </a>
+   platformd-wyclock (
+   <a href="#0">
+    ↸
+   </a>
+   )
+  </h5>
+  <p>
+   <a href="https://portal.frogbywyplay.com/docs/wytv/featured/components/system-platformd-wyclock/overview/">
+    platformd-wyclock
+   </a>
+   : time system
+  </p>
+  <h5 id="network-manager">
+   <a name="13">
+   </a>
+   network manager (
+   <a href="#0">
+    ↸
+   </a>
+   )
+  </h5>
+  <p>
+   <a href="https://portal.frogbywyplay.com/docs/wytv/featured/components/system-wynetwork/overview/">
+    network manager
+   </a>
+   : network interface configuration, monitoring connections/disconnections, list available networks
+  </p>
+  <h5 id="wystandby">
+   <a name="14">
+   </a>
+   wystandby (
+   <a href="#0">
+    ↸
+   </a>
+   )
+  </h5>
+  <p>
+   <a href="https://portal.frogbywyplay.com/docs/wytv/featured/components/system-wystandby/overview/">
+    wystandby
+   </a>
+   : manages the power state of the board (ready, standby, suspend, low-pwer, wake-up alarm)
+  </p>
+  <h3 id="3-mw-content-handling">
+   <a name="15">
+   </a>
+   3. MW-CONTENT-HANDLING (
+   <a href="#0">
+    ↸
+   </a>
+   )
+  </h3>
+  <p>
+   <img alt="" src="./img/H-contenthandling.png"/>
+  </p>
+  <h5 id="cds-pvr">
+   <a name="16">
+   </a>
+   cds-pvr (
+   <a href="#0">
+    ↸
+   </a>
+   )
+  </h5>
+  <p>
+   <a href="https://portal.frogbywyplay.com/docs/wytv/featured/components/contents-cds-pvr/overview/">
+    cds-pvr
+   </a>
+   : monitors the local list of recordings, which is populated by other components
+  </p>
+  <p>
+   <img alt="" src="./img/Q-cds-pvr.png"/>
+  </p>
+  <h5 id="downloader">
+   <a name="17">
+   </a>
+   downloader (
+   <a href="#0">
+    ↸
+   </a>
+   )
+  </h5>
+  <p>
+   <a href="https://frogbywyplay.com/">
+   </a>
+   <a href="http://frogbywyplay.com">
+    frogbywyplay.com
+   </a>
+  </p>
+  <h5 id="wyscan">
+   <a name="18">
+   </a>
+   wyscan (
+   <a href="#0">
+    ↸
+   </a>
+   )
+  </h5>
+  <p>
+   <a href="https://portal.frogbywyplay.com/docs/wytv/featured/components/contents-wyscan/overview/">
+    wyscan
+   </a>
+  </p>
+  <pre><code>    -  framework enabling scan DVB transponders and retrieve the Service Information tables
+    -  hosts cds-tv : services list ( includes fav. lists) and EPG
+/!\ you have to implement a plugin with yout product-specific scanning algorithm
+</code></pre>
+  <p>
+   <img alt="" src="./img/P-wyscan.png"/>
+  </p>
+  <h3 id="4-mw-platform-adaptation">
+   <a name="19">
+   </a>
+   4. MW-PLATFORM-ADAPTATION (
+   <a href="#0">
+    ↸
+   </a>
+   )
+  </h3>
+  <p>
+   <img alt="" src="./img/J-platform-adaptation.png"/>
+  </p>
+  <h5 id="avio">
+   <a name="20">
+   </a>
+   avio (
+   <a href="#0">
+    ↸
+   </a>
+   )
+  </h5>
+  <p>
+   <a href="https://portal.frogbywyplay.com/docs/wytv/featured/devkit/components/porting-platformd-nexus-avio/overview/">
+    avio
+   </a>
+   : dead link
+  </p>
+  <h5 id="wyrender">
+   <a name="21">
+   </a>
+   wyrender (
+   <a href="#0">
+    ↸
+   </a>
+   )
+  </h5>
+  <p>
+   <a href="https://portal.frogbywyplay.com/docs/wytv/featured/components/media-wyrender/overview/">
+    wyrender
+   </a>
+   : interface to be implemented in order to display frames : it allows hardware-specific graphical display operations
+  </p>
+  <h5 id="wydvb">
+   <a name="22">
+   </a>
+   wydvb (
+   <a href="#0">
+    ↸
+   </a>
+   )
+  </h5>
+  <p>
+   <a href="https://portal.frogbywyplay.com/docs/wytv/featured/components/contents-wydvb/overview/">
+    wydvb
+   </a>
+   : manages DVB tuners of the Set-top box
+  </p>
+  <h3 id="5-mw-other">
+   <a name="23">
+   </a>
+   5. MW-OTHER (
+   <a href="#0">
+    ↸
+   </a>
+   )
+  </h3>
+  <p>
+   <img alt="" src="./img/K-other.png"/>
+  </p>
+  <h5 id="config-store">
+   <a name="24">
+   </a>
+   config-store (
+   <a href="#0">
+    ↸
+   </a>
+   )
+  </h5>
+  <p>
+   <a href="https://portal.frogbywyplay.com/docs/wytv/featured/components/system-config-store/overview/">
+    config-store
+   </a>
+   : manages configuration for all components - through DBus or C++ APIs
+  </p>
+  <h5 id="wylog">
+   <a name="25">
+   </a>
+   wylog (
+   <a href="#0">
+    ↸
+   </a>
+   )
+  </h5>
+  <p>
+   <a href="https://portal.frogbywyplay.com/docs/wytv/featured/components/utils-wylog/overview/">
+    wylog
+   </a>
+   : library to manage component logs. Itis configurable.
+  </p>
+  <h5 id="wytransport">
+   <a name="26">
+   </a>
+   wytransport (
+   <a href="#0">
+    ↸
+   </a>
+   )
+  </h5>
+  <p>
+   <a href="https://portal.frogbywyplay.com/docs/wytv/featured/components/utils-libwytransport/overview/">
+    wytransport
+   </a>
+   : gives access to multimedia content WITH PUGINS FOR TRANSPORT PROTOCOLS LIKE http, https, http/dlna, smb
+  </p>
+  <script src="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.1/highlight.min.js">
+  </script>
+  <script>
+   hljs.initHighlightingOnLoad();
+  </script>
+  <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript">
+  </script>
+  <script type="text/javascript">
+   MathJax.Hub.Config({"showProcessingMessages" : false,"messageStyle" : "none","tex2jax": { inlineMath: [ [ "$", "$" ] ] }});
+  </script>
+ </body>
+</html>

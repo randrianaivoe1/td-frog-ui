@@ -1,0 +1,933 @@
+<!DOCTYPE HTML>
+<html>
+ <head>
+  <meta charset="utf-8"/>
+  <title>
+   Made with Remarkable!
+  </title>
+  <link href="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.1/styles/github.min.css" rel="stylesheet"/>
+  <style type="text/css">
+   body,table tr{background-color:#fff}table tr td,table tr th{border:1px solid #ccc;text-align:left;padding:6px 13px;margin:0}pre code,table,table tr{padding:0}hr,pre code{background:0 0}body{font:16px Helvetica,Arial,sans-serif;line-height:1.4;color:#333;word-wrap:break-word;padding:10px 15px}strong,table tr th{font-weight:700}h1{font-size:2em;margin:.67em 0;text-align:center}h2{font-size:1.75em}h3{font-size:1.5em}h4{font-size:1.25em}h1,h2,h3,h4,h5,h6{font-weight:700;position:relative;margin-top:15px;margin-bottom:15px;line-height:1.1}h1,h2{border-bottom:1px solid #eee}hr{height:0;margin:15px 0;overflow:hidden;border:0;border-bottom:1px solid #ddd}a{color:#4183C4}a.absent{color:#c00}ol,ul{padding-left:15px;margin-left:5px}ol{list-style-type:lower-roman}table tr{border-top:1px solid #ccc;margin:0}table tr:nth-child(2n){background-color:#aaa}table tr td :first-child,table tr th :first-child{margin-top:0}table tr td:last-child,table tr th :last-child{margin-bottom:0}img{max-width:100%}blockquote{padding:0 15px;border-left:4px solid #ccc}code,tt{margin:0 2px;padding:0 5px;white-space:nowrap;border:1px solid #eaeaea;background-color:#f8f8f8;border-radius:3px}pre code{margin:0;white-space:pre;border:none}.highlight pre,pre{background-color:#f8f8f8;border:1px solid #ccc;font-size:13px;line-height:19px;overflow:auto;padding:6px 10px;border-radius:3px}
+  </style>
+ </head>
+ <body>
+  <p>
+   <a href="./index.html">
+    HOME
+   </a>
+  </p>
+  <h1 id="table-of-content">
+   <a name="0">
+   </a>
+   Table of content
+  </h1>
+  <ul>
+   <li>
+    <a href="#1">
+     Install
+    </a>
+    <ul>
+     <li>
+      <a href="#2">
+       Full development environment install
+      </a>
+     </li>
+     <li>
+      <a href="#3">
+       Install on local computer
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li>
+    <a href="#4">
+     Code
+    </a>
+    <ul>
+     <li>
+      <a href="#5">
+       Directory tree
+      </a>
+     </li>
+     <li>
+      <a href="#6">
+       Code documentation
+      </a>
+      <ul>
+       <li>
+        <a href="#7">
+         Generate documentation
+        </a>
+       </li>
+       <li>
+        <a href="#8">
+         Comments
+        </a>
+       </li>
+      </ul>
+     </li>
+    </ul>
+   </li>
+   <li>
+    <a href="#9">
+     HelloWorld
+    </a>
+    <ul>
+     <li>
+      <a href="#10">
+       Overview
+      </a>
+     </li>
+     <li>
+      <a href="#11">
+       Feature
+      </a>
+     </li>
+     <li>
+      <a href="#12">
+       Steps
+      </a>
+      <ul>
+       <li>
+        <a href="#13">
+         a. Create Component
+        </a>
+       </li>
+       <li>
+        <a href="#14">
+         b. Create Controller
+        </a>
+       </li>
+       <li>
+        <a href="#15">
+         c. Add to Menu
+        </a>
+       </li>
+      </ul>
+     </li>
+    </ul>
+   </li>
+   <li>
+    <a href="#16">
+     Feedback
+    </a>
+   </li>
+   <li>
+    <a href="#17">
+     Glossary
+    </a>
+    <ul>
+     <li>
+      <a href="#18">
+       Technologies
+      </a>
+     </li>
+     <li>
+      <a href="#19">
+       Libraries
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+  <h1 id="install">
+   <a name="1">
+   </a>
+   Install (
+   <a href="#0">
+    ↸
+   </a>
+   )
+  </h1>
+  <h3 id="full-development-environment-install">
+   <a name="2">
+   </a>
+   Full development environment install (
+   <a href="#0">
+    ↸
+   </a>
+   )
+  </h3>
+  <p>
+   <a href="https://portal.frogbywyplay.com/docs/wytv/featured/guide-webapp-dev/dev-env-setup/">
+    Full install guide
+   </a>
+  </p>
+  <p>
+   <a href="https://portal.frogbywyplay.com/docs/wytv/featured/guide-webapp-dev/dev-env-setup/">
+    Prerequisites
+   </a>
+   <br/>
+   <a href="https://portal.frogbywyplay.com/docs/wytv/featured/guide-webapp-dev/start-ui/">
+    Start UI from Set-Up-Box
+   </a>
+   <br/>
+   <a href="https://portal.frogbywyplay.com/docs/wytv/featured/guide-webapp-dev/debug-testing/">
+    Debugging
+   </a>
+   : both on browser and remotely on STB embedded webkit browser
+   <br/>
+   <a href="https://portal.frogbywyplay.com/docs/wytv/featured/guide-webapp-dev/call-rest-api/">
+    REST-console
+   </a>
+   : to test request to server
+  </p>
+  <h3 id="install-on-local-computer">
+   <a name="3">
+   </a>
+   Install on local computer (
+   <a href="#0">
+    ↸
+   </a>
+   )
+  </h3>
+  <ul>
+   <li>
+    <p>
+     @feb 2017, no STB is installed, so we only use a computer running Linux, a browser and node
+    </p>
+   </li>
+   <li>
+    <p>
+     download code
+    </p>
+   </li>
+  </ul>
+  <pre><code>$ git clone git@github.com:frogbywyplay/apps_frog-ui.git
+</code></pre>
+  <p>
+   (prerequisite : open github account and access to source - ssh key)
+  </p>
+  <ul>
+   <li>
+    Install node and npm
+   </li>
+  </ul>
+  <pre><code>$ sudo apt-get update
+$ sudo apt-get install nodejs
+$ sudo apt-get install npm
+</code></pre>
+  <p>
+   /!\ to resolve conflicting “node” use
+  </p>
+  <pre><code>$ sudo ln -s /usr/bin/nodejs /usr/local/bin/node
+</code></pre>
+  <ul>
+   <li>
+    cf. README from code :
+    <br/>
+    Install node local environment
+   </li>
+  </ul>
+  <pre><code>$ npm install
+</code></pre>
+  <p>
+   Start the webpack-dev-server :
+  </p>
+  <pre><code>$ npm start
+</code></pre>
+  <p>
+   Open the UI in your browser using the following URL:
+   <a href="http://0.0.0.0:8080/?stbIp=127.0.0.1&amp;debug=true">
+   </a>
+   <a href="http://0.0.0.0:8080/?stbIp=127.0.0.1&amp;debug=true">
+    http://0.0.0.0:8080/?stbIp=127.0.0.1&amp;debug=true
+   </a>
+  </p>
+  <p>
+   Live reload works great. Every change in ./src is recompliled and browser is reloaded automatically
+   <br/>
+   See README for all available options or read
+   <a href="https://portal.frogbywyplay.com/docs/wytv/featured/guide-webapp-dev/start-ui/">
+    here
+   </a>
+  </p>
+  <ul>
+   <li>
+    debug=true exposes main helpers (e.g : bus) in Chrome debug console
+   </li>
+   <li>
+    Default setup are listed here “config.json”. For project set-up, duplicate and rename “config.json” to “config.local.json”. For quick/debug set-up on the fly, change query search options in the URL (flags need to be defined in app/config/index.js)
+   </li>
+  </ul>
+  <h1 id="code">
+   <a name="4">
+   </a>
+   Code (
+   <a href="#0">
+    ↸
+   </a>
+   )
+  </h1>
+  <h3 id="directory-tree">
+   <a name="5">
+   </a>
+   Directory tree (
+   <a href="#0">
+    ↸
+   </a>
+   )
+  </h3>
+  <p>
+   Including brief description and doc links
+  </p>
+  <p>
+   RootDirectory
+  </p>
+  <blockquote>
+   <p>
+    .
+    <br/>
+    ├── doc :
+    <em>
+     script to generate documentation
+    </em>
+    <br/>
+    ├── script :
+    <em>
+     other scripts (e.g cli output)
+    </em>
+    <br/>
+    ├── src :
+    <em>
+     ui js script
+    </em>
+    <br/>
+    ├── test :
+    <em>
+     unit test code
+    </em>
+    <br/>
+    ├── CHANGELOG :
+    <em>
+     log changes in different versions of code
+    </em>
+    <br/>
+    ├── config.json :
+    <em>
+     default config, to be overrided by config.local.json
+    </em>
+    <br/>
+    ├── config.webpack.json :
+    <em>
+     config for webpack server
+    </em>
+    <br/>
+    ├── CONTRIBUTING.md
+    <br/>
+    ├── LICENSE
+    <br/>
+    ├── package.json :
+    <em>
+     list modules dependencies and available script
+    </em>
+    <br/>
+    ├── README.md
+    <br/>
+    └── webpack.config.babel.js :
+    <em>
+     config for module bundling
+    </em>
+   </p>
+  </blockquote>
+  <p>
+   Javascript sources
+  </p>
+  <blockquote>
+   <p>
+    ./src
+    <br/>
+    ├── app
+    <br/>
+    ├── locales :
+    <br/>
+    ├──
+    <a href="#services">
+     services
+    </a>
+    <br/>
+    ├──
+    <a href="#utils">
+     utils
+    </a>
+    <br/>
+    ├── widgets
+    <br/>
+    ├── index.css
+    <br/>
+    ├── index.html
+    <br/>
+    └── index.js
+   </p>
+  </blockquote>
+  <p>
+   <mark>
+    App
+   </mark>
+  </p>
+  <blockquote>
+   <p>
+    ./src/app
+    <br/>
+    ├── assets
+    <br/>
+    ├──
+    <mark>
+     components
+    </mark>
+    <br/>
+    ├── config
+    <br/>
+    ├── controllers
+    <br/>
+    ├── models
+    <br/>
+    └── utils
+   </p>
+  </blockquote>
+  <p>
+   <mark>
+    Services
+   </mark>
+   <a name="services">
+   </a>
+  </p>
+  <blockquote>
+   <p>
+    ./src/services
+    <br/>
+    ├── api
+    <br/>
+    │   ├── index.js
+    <br/>
+    │   ├── scan.js
+    <br/>
+    │   └── …
+    <br/>
+    ├── managers
+    <br/>
+    │   ├── index.js
+    <br/>
+    │   ├── ScanManager.js
+    <br/>
+    │   ├──
+    <mark>
+     UniverseManager.js
+    </mark>
+    <br/>
+    │   ├── volume.js
+    <br/>
+    │   └── …
+    <br/>
+    ├── models
+    <br/>
+    │   ├── channels
+    <br/>
+    │   ├── …
+    <br/>
+    │   ├── index.js
+    <br/>
+    │   ├── Subtitle.js
+    <br/>
+    │   └── …
+    <br/>
+    ├──
+    <a href="https://portal.frogbywyplay.com/docs/wytv/featured/components/apps-frog-ui/framework/api-bus/">
+     bus.js
+    </a>
+    <br/>
+    ├──
+    <a href="https://portal.frogbywyplay.com/docs/wytv/featured/components/apps-frog-ui/framework/api-events/">
+     events.js
+    </a>
+    <br/>
+    ├──
+    <a href="https://portal.frogbywyplay.com/docs/wytv/featured/components/apps-frog-ui/framework/api-http/">
+     http.js
+    </a>
+    <br/>
+    └── Model.js
+   </p>
+  </blockquote>
+  <p>
+   /!\ Portal Frog documentation is outdated
+  </p>
+  <p>
+   <mark>
+    Widgets
+   </mark>
+  </p>
+  <blockquote>
+   <p>
+    ./src/widgets
+    <br/>
+    ├── list
+    <br/>
+    ├──
+    <a href="https://portal.frogbywyplay.com/docs/wytv/featured/components/apps-frog-ui/framework/Component/">
+     Component.js
+    </a>
+    <br/>
+    └── index.js
+   </p>
+  </blockquote>
+  <p>
+   <mark>
+    /!\ a word on how DOM is handled - components - philosophy - JSX - BEM
+   </mark>
+  </p>
+  <p>
+   Utils
+   <a name="utils">
+   </a>
+   <br/>
+   <a href="(https://portal.frogbywyplay.com/docs/wytv/featured/components/apps-frog-ui/framework/utils/)">
+    Link to doc
+   </a>
+  </p>
+  <blockquote>
+   <p>
+    ./src/utils
+    <br/>
+    ├── CircularList.js
+    <br/>
+    ├── config.js
+    <br/>
+    ├──
+    <a href="https://portal.frogbywyplay.com/docs/wytv/featured/components/apps-frog-ui/framework/api-Controller/">
+     Controller.js
+    </a>
+    <br/>
+    ├── date.js
+    <br/>
+    ├── dom.js
+    <br/>
+    ├── Singleton.js
+    <br/>
+    ├── string.js
+    <br/>
+    └── …
+   </p>
+  </blockquote>
+  <h3 id="code-documentation">
+   <a name="6">
+   </a>
+   Code documentation (
+   <a href="#0">
+    ↸
+   </a>
+   )
+  </h3>
+  <h5 id="generate-documentation">
+   <a name="7">
+   </a>
+   Generate documentation (
+   <a href="#0">
+    ↸
+   </a>
+   )
+  </h5>
+  <p>
+   In project root :
+  </p>
+  <pre><code>$ npm run build-doc
+</code></pre>
+  <p>
+   Documentation will build here : [apps_frog-ui/esdoc/index.html]
+  </p>
+  <h5 id="comments">
+   <a name="8">
+   </a>
+   Comments (
+   <a href="#0">
+    ↸
+   </a>
+   )
+  </h5>
+  <ul>
+   <li>
+    /!\ HelloWorld tutorial is outdated. It does not match current code.
+   </li>
+   <li>
+    10% functions are commented
+   </li>
+   <li>
+    <p>
+     <em>
+      Class
+     </em>
+     ,
+     <em>
+      Functions
+     </em>
+     and
+     <em>
+      Variables
+     </em>
+     are listed here : [apps_frog-ui/esdoc/identifiers.html]
+    </p>
+   </li>
+   <li>
+    <p>
+     <em>
+      API webservices
+     </em>
+     are listed here : [apps_frog-ui/esdoc/source.html]
+    </p>
+    <p>
+     (eg : volume.js service disposes of following webservices and REST calls : decreaseVolume, increaseVolume, getMute, mute, unmute)
+    </p>
+   </li>
+   <li>
+    <p>
+     Implemented unit tests : [apps_frog-ui/esdoc/test.html]
+    </p>
+   </li>
+   <li>
+    <p>
+     /!\ mocking request to API can be done using JS library
+     <a href="https://github.com/jameslnewell/xhr-mock">
+      xhr-mock
+     </a>
+     . List of all routes used in the frog-ui along with request and response samples are available
+     <a href="https://portal.frogbywyplay.com/docs/wytv/featured/components/appframeworks-wyrest/wyrest/http/routes/">
+      here
+     </a>
+    </p>
+   </li>
+  </ul>
+  <h1 id="helloworld">
+   <a name="9">
+   </a>
+   HelloWorld (
+   <a href="#0">
+    ↸
+   </a>
+   )
+  </h1>
+  <p>
+   <mark>
+    TODO : Push new helloWorld code
+   </mark>
+  </p>
+  <h3 id="overview">
+   <a name="10">
+   </a>
+   Overview (
+   <a href="#0">
+    ↸
+   </a>
+   )
+  </h3>
+  <p>
+   <img alt="" src="./img/hello_world.png"/>
+  </p>
+  <h3 id="feature">
+   <a name="11">
+   </a>
+   Feature (
+   <a href="#0">
+    ↸
+   </a>
+   )
+  </h3>
+  <ul>
+   <li>
+    display a new component when pressing OK from the remote/keyboard on the “helloworld” menu item (follow step a, b and c)
+   </li>
+   <li>
+    display data by calling REST Api (cf. src/app/controllers/HelloWorld/index.js)
+   </li>
+   <li>
+    display data SENT by the MiddleWare (cf. src/app/controllers/HelloWorld/index.js)
+   </li>
+  </ul>
+  <h3 id="steps">
+   <a name="12">
+   </a>
+   Steps (
+   <a href="#0">
+    ↸
+   </a>
+   )
+  </h3>
+  <h5 id="a-create-component">
+   <a name="13">
+   </a>
+   a. Create Component (
+   <a href="#0">
+    ↸
+   </a>
+   )
+  </h5>
+  <p>
+   component : DOM unit used by the application to define both UI component (example : a button)and views (example: a side-bar)
+  </p>
+  <pre><code>$ mkdir src/app/components/universes/HelloWorld
+$ touch src/app/components/universes/HelloWorld/index.js
+</code></pre>
+  <p>
+   style component
+  </p>
+  <pre><code>$ touch src/app/components/universes/HelloWorld/index.css
+</code></pre>
+  <p>
+   add component to the “Application” main view defined in : src/app/components/index.js
+  </p>
+  <ul>
+   <li>
+    import component
+   </li>
+   <li>
+    add component to DOM tree
+   </li>
+  </ul>
+  <h5 id="b-create-controller">
+   <a name="14">
+   </a>
+   b. Create Controller (
+   <a href="#0">
+    ↸
+   </a>
+   )
+  </h5>
+  <p>
+   controller : listens to events (from MW, from Application via Bus, from Keyboard), update view, retrieve via service API
+  </p>
+  <pre><code>$ mkdir src/app/controllers/HelloWorld/
+$ touch src/app/controllers/HelloWorld/index.js
+</code></pre>
+  <p>
+   controller needs to be referenced in main Manager defined in : src/app/services/managers/UniverseManager.js
+  </p>
+  <h5 id="c-add-to-menu">
+   <a name="15">
+   </a>
+   c. Add to Menu (
+   <a href="#0">
+    ↸
+   </a>
+   )
+  </h5>
+  <p>
+   add “Hello World” item to Home Menu in : src/app/models/Home.js
+  </p>
+  <h1 id="feedback">
+   <a name="16">
+   </a>
+   Feedback (
+   <a href="#0">
+    ↸
+   </a>
+   )
+  </h1>
+  <ul>
+   <li>
+    on-trend technologie, ahead of time (ES6, css-next)
+   </li>
+   <li>
+    modular code
+   </li>
+   <li>
+    maintainable code with coding rules (cf. file .eslintrc)
+   </li>
+   <li>
+    MVC
+   </li>
+   <li>
+    HelloWorld required some retro-engineering since code structure and architecture changed from what is documented
+   </li>
+  </ul>
+  <blockquote>
+   <p>
+    <strong>
+     Conclusion :
+    </strong>
+    <br/>
+    code is generic enough, as well as documented and structured. Existing features works as good examples to developnew features.
+    <br/>
+    Adding new components using existing features is possible
+    <br/>
+    To pick up on the code, knowledge of Babel ES6 and webpack or likewise libraries is required
+   </p>
+  </blockquote>
+  <h1 id="glossary">
+   <a name="17">
+   </a>
+   Glossary (
+   <a href="#0">
+    ↸
+   </a>
+   )
+  </h1>
+  <h4 id="technologies">
+   <a name="18">
+   </a>
+   Technologies (
+   <a href="#0">
+    ↸
+   </a>
+   )
+  </h4>
+  <p>
+   Nodejs, npm, Javascript, HTML, CSS
+   <br/>
+   <a href="http://babeljs.io/">
+    Babel
+   </a>
+   : Javascript compiler - allows the use of ECMAScript 6
+   <a href="https://en.wikipedia.org/wiki/ECMAScript">
+    ECMAScript
+   </a>
+   . Compiler targets ECMAScript ES5 (supported by most browsers)
+   <br/>
+   <a href="https://mochajs.org/">
+    Mocha
+   </a>
+   : unit test framework - handles async calls
+   <br/>
+   <a href="https://webpack.github.io/docs/what-is-webpack.html">
+    webpack
+   </a>
+   : module bundler, build code in unique file main.js
+  </p>
+  <h4 id="libraries">
+   <a name="19">
+   </a>
+   Libraries (
+   <a href="#0">
+    ↸
+   </a>
+   )
+  </h4>
+  <table>
+   <thead>
+    <tr>
+     <th>
+      Library
+     </th>
+     <th>
+      Description
+     </th>
+    </tr>
+   </thead>
+   <tbody>
+    <tr>
+     <td>
+      css-loader, exports-loader, json-loader, style-loader, file-loader
+     </td>
+     <td>
+      chaque loader prend un fichier source et retourne la nouvelle source après la moulinette webpack
+     </td>
+    </tr>
+    <tr>
+     <td>
+      <a href="https://www.npmjs.com/package/eslint">
+       eslint
+      </a>
+     </td>
+     <td>
+      JS lint*
+     </td>
+    </tr>
+    <tr>
+     <td>
+      <a href="https://www.npmjs.com/package/stylelint">
+       stylelint
+      </a>
+     </td>
+     <td>
+      CSS lint*
+     </td>
+    </tr>
+    <tr>
+     <td>
+      <a href="https://github.com/jameslnewell/xhr-mock">
+       xhr-mock
+      </a>
+     </td>
+     <td>
+      mock response to server request
+     </td>
+    </tr>
+    <tr>
+     <td>
+      <a href="https://github.com/gotwarlost/istanbul">
+       istanbul
+      </a>
+     </td>
+     <td>
+      code coverage - Mocha dependency
+     </td>
+    </tr>
+    <tr>
+     <td>
+      <a href="https://github.com/tmpvar/jsdom">
+       jsdom
+      </a>
+     </td>
+     <td>
+      mock DOM using JS - Mocha dependency
+     </td>
+    </tr>
+    <tr>
+     <td>
+      <a href="http://postcss.org/">
+       postcss
+      </a>
+     </td>
+     <td>
+      compil
+      <a href="http://cssnext.io/">
+       Css-next
+      </a>
+      (CSS form the future) in compatible CSS
+     </td>
+    </tr>
+    <tr>
+     <td>
+      <a href="https://www.npmjs.com/package/mixin-js">
+       mixin
+      </a>
+     </td>
+     <td>
+      JS object tools
+     </td>
+    </tr>
+    <tr>
+     <td>
+      <a href="https://github.com/blakeembrey/array-flatten">
+       array-flatten
+      </a>
+     </td>
+     <td>
+      array tool
+     </td>
+    </tr>
+    <tr>
+     <td>
+      <a href="https://www.npmjs.com/package/sinon">
+       sinon
+      </a>
+     </td>
+     <td>
+      test spies, stubs and mocks.
+     </td>
+    </tr>
+   </tbody>
+  </table>
+  <p>
+   *lint : code checker (common mistakes, respect coding standards, codes rules)
+  </p>
+  <script src="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.1/highlight.min.js">
+  </script>
+  <script>
+   hljs.initHighlightingOnLoad();
+  </script>
+  <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript">
+  </script>
+  <script type="text/javascript">
+   MathJax.Hub.Config({"showProcessingMessages" : false,"messageStyle" : "none","tex2jax": { inlineMath: [ [ "$", "$" ] ] }});
+  </script>
+ </body>
+</html>

@@ -1,6 +1,17 @@
-# Internationalisation
+# <a name =0></a> Table of content
++ [Internationalisation](#1)
+    + [How to](#2)
+    + [Script générateur "locale.sh"](#3)
+    + [Workflow](#4)
+    + [Installation](#5)
+        + [Prerequisites for locale.sh script to run](#6)
+        + [Poedit : GNU for translators](#7)
+    + [Implémentation de l'internationalisation dans le code](#8)
+    + [Référencement des chaînes à traduire : état actuel du code](#9)
+    + [Commentaires](#10)
+# <a name ="1"></a> Internationalisation ([&#8632;](#0))
 
-### How to
+### <a name ="2"></a> How to ([&#8632;](#0))
 
 1. Changer la langue de l'interface :
 via le menu
@@ -18,7 +29,7 @@ Lancer le script pour mettre à jour index.js
 
 3. Rajouter des chaînes de caractères traductible
 
-### Script générateur "locale.sh"
+### <a name ="3"></a> Script générateur "locale.sh" ([&#8632;](#0))
 - configure available languages
 - create POT from JS source files in [apps_frog-ui/src] (cf. 1)
 	
@@ -30,15 +41,15 @@ run script for each new language (cf. 2)
 previous existing PO files will be moved in a ~file.po
 - create final JS file used by i18n module (cf. 4)
 
-### Workflow
+### <a name ="4"></a> Workflow ([&#8632;](#0))
 ![](./i18n.png) 
 
 
-### Installation
+### <a name ="5"></a> Installation ([&#8632;](#0))
 
 [Portal doc](https://portal.frogbywyplay.com/docs/wytv/featured/components/apps-frog-ui/framework/locale/) 
 
-##### Prerequisites for locale.sh script to run
+##### <a name ="6"></a> Prerequisites for locale.sh script to run ([&#8632;](#0))
 
 babel to extract translatable content from js files
 
@@ -57,12 +68,12 @@ gettext to use msginit tool to create (*.po) translation files
 	$ sudo apt-get install python-pip
 	$ sudo pip install pojson
 
-##### Poedit : GNU for translators
+##### <a name ="7"></a> Poedit : GNU for translators ([&#8632;](#0))
 [Online doc](https://poedit.net/) 
 
 	$ sudo apt-get install poedit
 
-### Implémentation de l'internationalisation dans le code
+### <a name ="8"></a> Implémentation de l'internationalisation dans le code ([&#8632;](#0))
 ![](./translate.png) 
 
 
@@ -91,13 +102,13 @@ appelée dans tout le code pour traduite
 
 
 
-### Référencement des chaînes à traduire : état actuel du code
+### <a name ="9"></a> Référencement des chaînes à traduire : état actuel du code ([&#8632;](#0))
 > 
 - pas unifié
 - Il faut identifier les chaînes qui sont à traduire, elles peuvent être encapsulées dans différentes structure de données ou variables (e.g : items.label, attributes.comment.default)
 - Les chaînes répertoriées manuellement dans manual/*.pot ne précisent pas le référencement au fichier source
 
-### Commentaires
+### <a name ="10"></a> Commentaires ([&#8632;](#0))
 Un joyeux bazar
 
 pas unifié

@@ -1,35 +1,38 @@
 # <a name =0></a> Table of content
 + [Internationalisation](#1)
     + [How to](#2)
-    + [Script générateur "locale.sh"](#3)
+    + [Script generator "locale.sh"](#3)
     + [Workflow](#4)
-    + [Installation](#5)
+    + [Install](#5)
         + [Prerequisites for locale.sh script to run](#6)
         + [Poedit : GNU for translators](#7)
-    + [Implémentation de l'internationalisation dans le code](#8)
-    + [Référencement des chaînes à traduire : état actuel du code](#9)
-    + [Commentaires](#10)
+    + [Code Implementation](#8)
+    + [Translatable text references in the code](#9)
+    + [Comments](#10)
 # <a name ="1"></a> Internationalisation ([&#8632;](#0))
 
 ### <a name ="2"></a> How to ([&#8632;](#0))
 
-1. Changer la langue de l'interface :
-via le menu
-traduction à la volée des menus de configuration
-/!\ atttention si changement de la langue via le code - ce n'est pas géré (faut passer par le menu)
+1. Change STB UI language :
+via menu
+menu settings already rendered are translated on the fly
+```
+/!\ do not change the language programmatically, it has to be done through the menu
+```
 >
-requête PUT config/settings/locale
-update de la Home
+a request PUT config/settings/locale is sent
+Home menu are being reloaded
 
-2. Ajouter une nouvelle langue à traduire
+2. Handle a new language
 >
-Modifier la variable LOCALES dans locale.sh
-Lancer le script pour générer le .po
-Lancer le script pour mettre à jour index.js
+Modify LOCALES variable in locale.sh
+Run script to generate .po
+Run script to update index.js
 
-3. Rajouter des chaînes de caractères traductible
+3. Add new text to be translated
+Use the syntax :  _("text to be translated")
 
-### <a name ="3"></a> Script générateur "locale.sh" ([&#8632;](#0))
+### <a name ="3"></a> Script generator "locale.sh" ([&#8632;](#0))
 - configure available languages
 - create POT from JS source files in [apps_frog-ui/src] (cf. 1)
 	
@@ -45,7 +48,7 @@ previous existing PO files will be moved in a ~file.po
 ![](./i18n.png) 
 
 
-### <a name ="5"></a> Installation ([&#8632;](#0))
+### <a name ="5"></a> Install ([&#8632;](#0))
 
 [Portal doc](https://portal.frogbywyplay.com/docs/wytv/featured/components/apps-frog-ui/framework/locale/) 
 
@@ -73,7 +76,7 @@ gettext to use msginit tool to create (*.po) translation files
 
 	$ sudo apt-get install poedit
 
-### <a name ="8"></a> Implémentation de l'internationalisation dans le code ([&#8632;](#0))
+### <a name ="8"></a> Code Implementation ([&#8632;](#0)) 
 ![](./translate.png) 
 
 
@@ -83,42 +86,42 @@ gettext to use msginit tool to create (*.po) translation files
 **utils/locale.js**
 >
 *class i18n*
-- charge les LOCALE_DATA et fournit la traduction d'une chaîne dans la langue
-	/!\ autant d'instance que de langue
+- load LOCALE_DATA and make translation available for a given translatable text 
+	/!\ one instance per language
 	
 >
 *class Locale*
-	- instantie un i18n à partir des LOCALE_DATA et la langue demandée
-	- fournit les fonctions de traduction d'une chaîne de caractère ou d'un ensemble d'élément du DOM
-	- envoie un evenement lors d'un changement de langue via le menu
+	- creates an instance of i18n from LOCALE_DATA and the required language
+	- offers functions to translate a given text or DOM tree nodes
+	- sends an event once translating  via menu has been proceed
 
 **app/utils/locale.js **
 > translate DOM (SettingsMenu, manualRecord and ScanProgress-services-found) already loaded
-envoie un event après traduction "locale:update"
+send "locale:update" event after locale update
 
 
 **_("translate me")**
-appelée dans tout le code pour traduite
+syntax to translate a given text
 
 
 
-### <a name ="9"></a> Référencement des chaînes à traduire : état actuel du code ([&#8632;](#0))
-> 
-- pas unifié
-- Il faut identifier les chaînes qui sont à traduire, elles peuvent être encapsulées dans différentes structure de données ou variables (e.g : items.label, attributes.comment.default)
-- Les chaînes répertoriées manuellement dans manual/*.pot ne précisent pas le référencement au fichier source
-
-### <a name ="10"></a> Commentaires ([&#8632;](#0))
-Un joyeux bazar
-
-pas unifié
-> 
-Référencer au moins les noms de fichier dans les POT manuel et préfixer TOUTES les chaînes à traduire par _("")
-
-
-même script à lancer plusieurs fois et qui va faire des actions différentes à chaque fois)
+### <a name ="9"></a> Translatable text references in the code ([&#8632;](#0)) 
 >
-Découper le script : 
+- translation usage is not unified
+- translatable string can be encapsulated in various data object and variables - they are not easy to identify
+- string referenced manually in folder manual/*.pot don't point out their file source origin
+
+### <a name ="10"></a> Comments ([&#8632;](#0))
+Messy
+
+Not unified
+> 
+Source file should be referenced in manual POT
+All translatable chain should have the same syntax _("...")
+
+It is confusing to use the same script which results in different outcomes and output
+>
+Use 3 scripts instead : 
 src_to_pot, pot_to_po (merge and add new languages), po_to_js
 
 

@@ -51,7 +51,7 @@ See README for all available options or read [here](https://portal.frogbywyplay.
 ### Directory tree
 Including brief description and doc links
 
-RootDirectory
+**RootDirectory**
 >
 .
 ├── doc : *script to generate documentation*
@@ -68,7 +68,7 @@ RootDirectory
 └── webpack.config.babel.js : *config for module bundling*
 
 
-Javascript sources
+**Javascript sources**
 >
 ./src
 ├── app
@@ -80,17 +80,17 @@ Javascript sources
 ├── index.html
 └── index.js
 
-==App==
+**App** : interface interaction, interface intelligence
 >
 ./src/app
 ├── assets
-├── ==components==
+├── components > DOM ecapsulated in js files
 ├── config
 ├── controllers
 ├── models
 └── utils
 
-==Services==<a name="services"></a>
+**Services**<a name="services"></a> : business intelligence
 >
 ./src/services
 ├── api
@@ -100,7 +100,7 @@ Javascript sources
 ├── managers
 │   ├── index.js
 │   ├── ScanManager.js
-│   ├── ==UniverseManager.js==
+│   ├── UniverseManager.js : initialize App controllers
 │   ├── volume.js
 │   └── ...
 ├── models
@@ -117,14 +117,14 @@ Javascript sources
 
 /!\ Portal Frog documentation is outdated
 
-==Widgets==
+Widgets : Graphic helpers
 >
 ./src/widgets
 ├── list
 ├── [Component.js](https://portal.frogbywyplay.com/docs/wytv/featured/components/apps-frog-ui/framework/Component/)
 └── index.js
 
-==/!\ a word on how DOM is handled - components - philosophy - JSX - BEM==
+Code concept, architecture and philosophy follows [JSX](https://jsx.github.io/) and [BEM](http://blog.kaelig.fr/post/48196348743/fifty-shades-of-bem)
 
 Utils<a name="utils"></a>
 [Link to doc]((https://portal.frogbywyplay.com/docs/wytv/featured/components/apps-frog-ui/framework/utils/))
@@ -164,7 +164,10 @@ Documentation will build here : [apps_frog-ui/esdoc/index.html]
 
 
 # HelloWorld 
-==TODO : Push new helloWorld code==
+### Code
+
+	$ git clone git@gitlab.td.lan:randrianaivoe1/frog-ui.git
+	
 ### Overview
 ![](./hello_world.png) 
 

@@ -8,16 +8,17 @@
         + [Generate documentation](#7)
         + [Comments](#8)
 + [HelloWorld](#9)
-    + [Overview](#10)
-    + [Feature](#11)
-    + [Steps](#12)
-        + [a. Create Component](#13)
-        + [b. Create Controller](#14)
-        + [c. Add to Menu](#15)
-+ [Feedback](#16)
-+ [Glossary](#17)
-      + [Technologies](#18)
-      + [Libraries](#19)
+    + [Code](#10)
+    + [Overview](#11)
+    + [Feature](#12)
+    + [Steps](#13)
+        + [a. Create Component](#14)
+        + [b. Create Controller](#15)
+        + [c. Add to Menu](#16)
++ [Feedback](#17)
++ [Glossary](#18)
+      + [Technologies](#19)
+      + [Libraries](#20)
 # <a name ="1"></a> Install ([&#8632;](#0))
 ### <a name ="2"></a> Full development environment install ([&#8632;](#0))
 [Full install guide](https://portal.frogbywyplay.com/docs/wytv/featured/guide-webapp-dev/dev-env-setup/)
@@ -71,7 +72,7 @@ See README for all available options or read [here](https://portal.frogbywyplay.
 ### <a name ="5"></a> Directory tree ([&#8632;](#0))
 Including brief description and doc links
 
-RootDirectory
+**RootDirectory**
 >
 .
 ├── doc : *script to generate documentation*
@@ -88,7 +89,7 @@ RootDirectory
 └── webpack.config.babel.js : *config for module bundling*
 
 
-Javascript sources
+**Javascript sources**
 >
 ./src
 ├── app
@@ -100,17 +101,17 @@ Javascript sources
 ├── index.html
 └── index.js
 
-==App==
+**App** : interface interaction, interface intelligence
 >
 ./src/app
 ├── assets
-├── ==components==
+├── components > DOM ecapsulated in js files
 ├── config
 ├── controllers
 ├── models
 └── utils
 
-==Services==<a name="services"></a>
+**Services**<a name="services"></a> : business intelligence
 >
 ./src/services
 ├── api
@@ -120,7 +121,7 @@ Javascript sources
 ├── managers
 │   ├── index.js
 │   ├── ScanManager.js
-│   ├── ==UniverseManager.js==
+│   ├── UniverseManager.js : initialize App controllers
 │   ├── volume.js
 │   └── ...
 ├── models
@@ -137,14 +138,14 @@ Javascript sources
 
 /!\ Portal Frog documentation is outdated
 
-==Widgets==
+Widgets : Graphic helpers
 >
 ./src/widgets
 ├── list
 ├── [Component.js](https://portal.frogbywyplay.com/docs/wytv/featured/components/apps-frog-ui/framework/Component/)
 └── index.js
 
-==/!\ a word on how DOM is handled - components - philosophy - JSX - BEM==
+Code concept, architecture and philosophy follows [JSX](https://jsx.github.io/) and [BEM](http://blog.kaelig.fr/post/48196348743/fifty-shades-of-bem)
 
 Utils<a name="utils"></a>
 [Link to doc]((https://portal.frogbywyplay.com/docs/wytv/featured/components/apps-frog-ui/framework/utils/))
@@ -184,17 +185,20 @@ Documentation will build here : [apps_frog-ui/esdoc/index.html]
 
 
 # <a name ="9"></a> HelloWorld ([&#8632;](#0)) 
-==TODO : Push new helloWorld code==
-### <a name ="10"></a> Overview ([&#8632;](#0))
+### <a name ="10"></a> Code ([&#8632;](#0))
+
+	$ git clone git@gitlab.td.lan:randrianaivoe1/frog-ui.git
+	
+### <a name ="11"></a> Overview ([&#8632;](#0))
 ![](./hello_world.png) 
 
-### <a name ="11"></a> Feature ([&#8632;](#0))
+### <a name ="12"></a> Feature ([&#8632;](#0))
 - display a new component when pressing OK from the remote/keyboard on the "helloworld" menu item (follow step a, b and c)
 - display data by calling REST Api (cf. src/app/controllers/HelloWorld/index.js)
 - display data SENT by the MiddleWare (cf. src/app/controllers/HelloWorld/index.js)
 
-### <a name ="12"></a> Steps ([&#8632;](#0))
-##### <a name ="13"></a> a. Create Component ([&#8632;](#0))
+### <a name ="13"></a> Steps ([&#8632;](#0))
+##### <a name ="14"></a> a. Create Component ([&#8632;](#0))
 component : DOM unit used by the application to define both UI component (example : a button)and views (example: a side-bar)
 
 	$ mkdir src/app/components/universes/HelloWorld
@@ -210,7 +214,7 @@ add component to the "Application" main view defined in : src/app/components/ind
 - import component
 - add component to DOM tree
 
-##### <a name ="14"></a> b. Create Controller ([&#8632;](#0))
+##### <a name ="15"></a> b. Create Controller ([&#8632;](#0))
 controller : listens to events (from MW, from Application via Bus, from Keyboard), update view, retrieve via service API
 
 	$ mkdir src/app/controllers/HelloWorld/
@@ -218,11 +222,11 @@ controller : listens to events (from MW, from Application via Bus, from Keyboard
 
 controller needs to be referenced in main Manager defined in : src/app/services/managers/UniverseManager.js
 
-##### <a name ="15"></a> c. Add to Menu ([&#8632;](#0))
+##### <a name ="16"></a> c. Add to Menu ([&#8632;](#0))
 add "Hello World" item to Home Menu in : src/app/models/Home.js
 
 
-# <a name ="16"></a> Feedback ([&#8632;](#0))
+# <a name ="17"></a> Feedback ([&#8632;](#0))
 
 - on-trend technologie, ahead of time (ES6, css-next)
 - modular code
@@ -235,14 +239,14 @@ add "Hello World" item to Home Menu in : src/app/models/Home.js
 > Adding new components using existing features is possible
 > To pick up on the code, knowledge of Babel ES6 and webpack or likewise libraries is required
 
-# <a name ="17"></a> Glossary ([&#8632;](#0))
-#### <a name ="18"></a> Technologies ([&#8632;](#0))
+# <a name ="18"></a> Glossary ([&#8632;](#0))
+#### <a name ="19"></a> Technologies ([&#8632;](#0))
 Nodejs, npm, Javascript, HTML, CSS
 [Babel](http://babeljs.io/) : Javascript compiler - allows the use of ECMAScript 6 [ECMAScript](https://en.wikipedia.org/wiki/ECMAScript). Compiler targets ECMAScript ES5 (supported by most browsers)
 [Mocha](https://mochajs.org/) : unit test framework - handles async calls
 [webpack](https://webpack.github.io/docs/what-is-webpack.html) : module bundler, build code in unique file main.js 
 
-#### <a name ="19"></a> Libraries ([&#8632;](#0))
+#### <a name ="20"></a> Libraries ([&#8632;](#0))
 
 Library | Description
 --- | --- 

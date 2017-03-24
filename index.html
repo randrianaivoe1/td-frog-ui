@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <title>Breadcrumb</title>
+  <style type="text/css">
+	  :root {
+	  --Focused: rgba(67, 177, 202, 0.6);
+	  --Done: rgba(128,128, 128, 0.5);
+	  /*--Done: rgba(128, 128, 128, 0.8);*/
+	  --UnVisited: rgba(32, 37, 51, 0.7);
+	  }
+
+  	#darkContainer {
+  		width: 1000px;
+  		background: black;
+  		height: 120px;
+  	}
+
+  	#clearContainer {
+  		width: 1000px;
+  		background-color: lightpink;
+  		height: 120px
+  	}
+
+  	#pictureContainer {
+  		width: 1000px;
+  		background: url("home.jpg");
+  		height: 120px;
+  	}
+
+  	.cursor {
+  		width: 159px;
+  		float: left;
+  		color: white;
+  	}
+
+  	.cursor-content {
+  		width: 100px;
+  		text-align: left;
+  		float: left;
+  		line-height: 58px;
+  		background-color: var(--UnVisited);
+  	}
+
+  	.cursor-content span {
+  		margin-left: 40px;
+  	}
+
+  	.cursor-arrow {
+			float: left;
+			border-style: solid;
+			border-width: 29px 0 29px 29px;
+  		border-color: transparent transparent transparent var(--UnVisited);
+  	}
+
+  	.item--focus .cursor-content {
+  		background-color: var(--Focused) !important;
+  	}
+
+  	.item--focus .cursor-arrow {
+  		border-color: transparent transparent transparent var(--Focused) !important;
+  	}
+
+  	.item--focus .shape {
+  		border-color: var(--Focused) transparent var(--Focused) transparent !important;
+  	}
+
+  	.item--done .cursor-content {
+  		background-color: var(--Done) !important;
+  	}
+
+		.item--done .cursor-arrow {
+  		border-color: transparent transparent transparent var(--Done) !important;
+  	}
+
+  	.item--done .shape {
+  		border-color: var(--Done) transparent var(--Done) transparent !important;
+  	}
+
+  	.item {
+  		position: relative;
+  		float: left;
+  		width: 132px;
+  	}
+
+		.shape {
+			float: left;
+			border-style: solid;
+			border-width: 29px 0 29px 29px;
+			border-color: var(--UnVisited) transparent var(--UnVisited) transparent;
+		}
+
+		.first .cursor-arrow {
+  		border-color: transparent transparent transparent rgba(67, 177, 202, 0.6) !important;
+		}
+
+		.first .shape {
+			border-color: rgba(67, 177, 202, 0.6) transparent rgba(67, 177, 202, 0.6) transparent !important;
+		}
+
+		.first .cursor-content {
+  		background-color: rgba(67, 177, 202, 0.6) !important;
+		}
+  	/*
+  		3 différentes classes
+			les arrows
+			la superposition
+  	*/
+
+
+  </style>
+  <script
+  src="https://code.jquery.com/jquery-3.2.1.min.js"
+  integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+  crossorigin="anonymous"></script>
+</head>
+<body>
+	<h1>Welcome to Breadcrumb</h1>
+	<div id="darkContainer" class="container">
+		<div class="item first">
+			<div class="cursor">
+				<div class="shape"></div>
+				<div class="cursor-content">
+					<span>One</span>
+				</div>
+				<div class="cursor-arrow"></div>
+			</div>
+		</div>
+		<div class="item">
+			<div class="cursor">
+				<div class="shape"></div>
+				<div class="cursor-content">
+					<span>Two</span>
+				</div>
+				<div class="cursor-arrow"></div>
+			</div>
+		</div>
+		<div class="item">
+			<div class="cursor">
+				<div class="shape"></div>
+				<div class="cursor-content">
+					<span>Three</span>
+				</div>
+				<div class="cursor-arrow"></div>
+			</div>
+		</div>
+		<div class="item">
+			<div class="cursor">
+				<div class="shape"></div>
+				<div class="cursor-content">
+					<span>Four</span>
+				</div>
+				<div class="cursor-arrow"></div>
+			</div>
+		</div>
+		<div class="item">
+			<div class="cursor">
+				<div class="shape"></div>
+				<div class="cursor-content">
+					<span>Five</span>
+				</div>
+				<div class="cursor-arrow"></div>
+			</div>
+		</div>
+	</div>
+	<div id="clearContainer" class="container">
+		<div class="item first">
+			<div class="cursor">
+				<div class="shape"></div>
+				<div class="cursor-content">
+					<span>One</span>
+				</div>
+				<div class="cursor-arrow"></div>
+			</div>
+		</div>
+		<div class="item">
+			<div class="cursor">
+				<div class="shape"></div>
+				<div class="cursor-content">
+					<span>Two</span>
+				</div>
+				<div class="cursor-arrow"></div>
+			</div>
+		</div>
+		<div class="item">
+			<div class="cursor">
+				<div class="shape"></div>
+				<div class="cursor-content">
+					<span>Three</span>
+				</div>
+				<div class="cursor-arrow"></div>
+			</div>
+		</div>
+		<div class="item">
+			<div class="cursor">
+				<div class="shape"></div>
+				<div class="cursor-content">
+					<span>Four</span>
+				</div>
+				<div class="cursor-arrow"></div>
+			</div>
+		</div>
+		<div class="item">
+			<div class="cursor">
+				<div class="shape"></div>
+				<div class="cursor-content">
+					<span>Five</span>
+				</div>
+				<div class="cursor-arrow"></div>
+			</div>
+		</div>
+	</div>
+	<div id="pictureContainer" class="container">
+		<div class="item first">
+			<div class="cursor">
+				<div class="shape"></div>
+				<div class="cursor-content">
+					<span>One</span>
+				</div>
+				<div class="cursor-arrow"></div>
+			</div>
+		</div>
+		<div class="item">
+			<div class="cursor">
+				<div class="shape"></div>
+				<div class="cursor-content">
+					<span>Two</span>
+				</div>
+				<div class="cursor-arrow"></div>
+			</div>
+		</div>
+		<div class="item">
+			<div class="cursor">
+				<div class="shape"></div>
+				<div class="cursor-content">
+					<span>Three</span>
+				</div>
+				<div class="cursor-arrow"></div>
+			</div>
+		</div>
+		<div class="item">
+			<div class="cursor">
+				<div class="shape"></div>
+				<div class="cursor-content">
+					<span>Four</span>
+				</div>
+				<div class="cursor-arrow"></div>
+			</div>
+		</div>
+		<div class="item">
+			<div class="cursor">
+				<div class="shape"></div>
+				<div class="cursor-content">
+					<span>Five</span>
+				</div>
+				<div class="cursor-arrow"></div>
+			</div>
+		</div>
+	</div>
+	<script type="text/javascript">
+		$(document).ready(function() {
+			// $(".item").first().addClass("item--done")
+			// $(".item:nth-child(2)").addClass("item--focus")
+			// var nbItems = 5
+			// $(".item").each(function(index) {
+			// 	$(this).css("z-index", nbItems-index)
+			// })
+		})
+	</script>
+</body>
+</html>
